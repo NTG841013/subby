@@ -51,9 +51,8 @@
             "./assets/fonts/PlusJakartaSans-Light.ttf"
           ]
         }
-
-    ]
-      ],
+      ]
+    ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
