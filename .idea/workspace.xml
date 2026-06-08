@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33ed1886-974a-4d7f-b420-c783e50bef08" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constants/data.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constants/icons.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/constants/theme.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/type.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/subscriptions/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/subscriptions/[id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/splash-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/splash-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,47 +15,47 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="108" />
+    <option name="cachedIndexableFilesCount" value="113" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "NTG841013"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;NTG841013&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/NTG841013/subby.git",
-    "accountId": "a3795622-289a-4aa2-9fed-d54c3902e5bf"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/NTG841013/subby.git&quot;,
+    &quot;accountId&quot;: &quot;a3795622-289a-4aa2-9fed-d54c3902e5bf&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.482474227859769" />
-      <entry key="MS500" value="2.7634155783210526" />
-      <entry key="S2" value="4.9020343312571555" />
-      <entry key="S5" value="6.380475003472098" />
-      <entry key="S10" value="7.105771539792639" />
-      <entry key="S30" value="7.68059730983018" />
-      <entry key="S60" value="7.837454378035498" />
-      <entry key="M2" value="7.918001964873506" />
-      <entry key="M5" value="7.967024886454412" />
-      <entry key="M10" value="7.98348297140239" />
-      <entry key="M15" value="7.988982086757525" />
-      <entry key="M30" value="7.99450002456742" />
-      <entry key="H1" value="8.042980557322004" />
-      <entry key="H2" value="11.201835385788703" />
-      <entry key="H4" value="36.507266903358435" />
-      <entry key="D1" value="191.70045026718705" />
-      <entry key="W1" value="261.8960431187312" />
+      <entry key="MS100" value="1.0865693417569329" />
+      <entry key="MS500" value="1.613017430026578" />
+      <entry key="S2" value="1.8848470468146135" />
+      <entry key="S5" value="1.952241889412658" />
+      <entry key="S10" value="1.9758288217780096" />
+      <entry key="S30" value="1.9918771383626803" />
+      <entry key="S60" value="1.9959302879030905" />
+      <entry key="M2" value="1.997964762457238" />
+      <entry key="M5" value="2.0884978017596247" />
+      <entry key="M10" value="5.669440238308928" />
+      <entry key="M15" value="15.449349789103422" />
+      <entry key="M30" value="56.47211210225233" />
+      <entry key="H1" value="120.40058110633655" />
+      <entry key="H2" value="183.6190430368743" />
+      <entry key="H4" value="242.92862912182915" />
+      <entry key="D1" value="629.145804865997" />
+      <entry key="W1" value="1069.3837686081276" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -76,36 +64,36 @@
       <entry key="S5" value="0.0" />
       <entry key="S10" value="0.0" />
       <entry key="S30" value="0.0" />
-      <entry key="S60" value="1.5019859921989046E-203" />
-      <entry key="M2" value="7.719316078161225E-102" />
-      <entry key="M5" value="1.3763076596689722E-40" />
-      <entry key="M10" value="4.675414930014627E-20" />
-      <entry key="M15" value="3.5615448912979013E-13" />
-      <entry key="M30" value="3.2144771848630297E-6" />
-      <entry key="H1" value="0.012263510445384231" />
-      <entry key="H2" value="0.8849950754975056" />
-      <entry key="H4" value="7.966790935008185" />
-      <entry key="D1" value="51.446751354535394" />
-      <entry key="W1" value="71.06243913832768" />
+      <entry key="S60" value="1.7412896683115424E-242" />
+      <entry key="M2" value="1.9530489774290815E-121" />
+      <entry key="M5" value="9.414466891447912E-49" />
+      <entry key="M10" value="1.875336945803395E-24" />
+      <entry key="M15" value="2.60499211716235E-16" />
+      <entry key="M30" value="4.0037398856296256E-8" />
+      <entry key="H1" value="5.256758839896479E-4" />
+      <entry key="H2" value="0.08531151199918535" />
+      <entry key="H4" value="2.513757905576841" />
+      <entry key="D1" value="97.0571712447846" />
+      <entry key="W1" value="212.44839707878933" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.290976759062079" />
-      <entry key="MS500" value="2.4141045849365286" />
-      <entry key="S2" value="4.751603593762099" />
-      <entry key="S5" value="6.312008950161681" />
-      <entry key="S10" value="7.069914897186788" />
-      <entry key="S30" value="7.668255685321321" />
-      <entry key="S60" value="7.831232902584544" />
-      <entry key="M2" value="7.91487840402278" />
-      <entry key="M5" value="7.965772364058625" />
-      <entry key="M10" value="7.982856192137526" />
-      <entry key="M15" value="7.9885641186603475" />
-      <entry key="M30" value="7.994294190396119" />
-      <entry key="H1" value="8.055125820464665" />
-      <entry key="H2" value="12.086281621512406" />
-      <entry key="H4" value="44.47181249189546" />
-      <entry key="D1" value="243.14483810364354" />
-      <entry key="W1" value="332.9580174027019" />
+      <entry key="MS100" value="0.931774658584201" />
+      <entry key="MS500" value="1.5341988756403289" />
+      <entry key="S2" value="1.8585734253023238" />
+      <entry key="S5" value="1.9410693703274038" />
+      <entry key="S10" value="1.9701260438798642" />
+      <entry key="S30" value="1.9899497396774364" />
+      <entry key="S60" value="1.9949632426380244" />
+      <entry key="M2" value="1.9974804003144662" />
+      <entry key="M5" value="2.0882984795878206" />
+      <entry key="M10" value="5.669216478006381" />
+      <entry key="M15" value="15.448936565802194" />
+      <entry key="M30" value="56.471239917608955" />
+      <entry key="H1" value="120.40008643879884" />
+      <entry key="H2" value="183.70350769321087" />
+      <entry key="H4" value="245.4412739417684" />
+      <entry key="D1" value="726.1985584059512" />
+      <entry key="W1" value="1281.8307647695779" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -126,7 +114,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "dev",
     "ignore.virus.scanning.warn.message": "true",
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
@@ -172,10 +160,23 @@
       <updated>1780676826813</updated>
       <workItem from="1780676827835" duration="289000" />
       <workItem from="1780677133918" duration="15532000" />
+      <workItem from="1780734698029" duration="36256000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app/(tabs)/index.tsx</url>
+          <line>25</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

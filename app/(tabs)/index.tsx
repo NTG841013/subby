@@ -13,9 +13,12 @@ import SubscriptionCard from "@/components/SubscriptionCard";
 import {useState} from "react";
 
 
+import {useUser} from "@clerk/expo";
+
 const SafeAreaView = styled(RNSafeAreaView);
 
 export default function Home() {
+    const { user } = useUser();
     const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<string | null>(null);
 
     const handleSubscriptionPress = (item: any) => {
@@ -30,10 +33,12 @@ export default function Home() {
                         <View className="home-header">
                             <View className="home-user">
                                 <Image
-                                    source={images.avatar}
+                                    source={user?.imageUrl ? { uri: user.imageUrl } : images.avatar}
                                     className="home-avatar"
                                 />
-                                <Text className="home-user-name">{HOME_USER.name}</Text>
+                                <Text className="home-user-name">
+                                    {user?.firstName ? `Hi, ${user.firstName}` : HOME_USER.name}
+                                </Text>
                             </View>
 
                             <Pressable onPress={() => {}}>
