@@ -10,6 +10,7 @@ import dayjs from "dayjs";
 import ListHeading from "@/components/ListHeading";
 import UpcomingSubscriptionCard from "@/components/UpcomingSubscriptionCard";
 import SubscriptionCard from "@/components/SubscriptionCard";
+import CreateSubscriptionModal from "@/components/CreateSubscriptionModal";
 import {useState} from "react";
 
 
@@ -20,9 +21,15 @@ const SafeAreaView = styled(RNSafeAreaView);
 export default function Home() {
     const { user } = useUser();
     const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<string | null>(null);
+    const [subscriptions, setSubscriptions] = useState(HOME_SUBSCRIPTIONS);
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
     const handleSubscriptionPress = (item: any) => {
         setExpandedSubscriptionId((currentId) => (currentId === item.id ? null : item.id));
+    };
+
+    const handleCreateSubscription = (newSub: any) => {
+        setSubscriptions([newSub, ...subscriptions]);
     };
 
     return (
@@ -41,7 +48,7 @@ export default function Home() {
                                 </Text>
                             </View>
 
-                            <Pressable onPress={() => {}}>
+                            <Pressable onPress={() => setIsModalVisible(true)}>
                                 <Image source={icons.add} className="home-add-icon" />
                             </Pressable>
                         </View>
@@ -75,7 +82,7 @@ export default function Home() {
                         <ListHeading title="All Subscriptions" />
                     </>
                 )}
-                data={HOME_SUBSCRIPTIONS}
+                data={subscriptions}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => (
                     <SubscriptionCard
@@ -89,6 +96,11 @@ export default function Home() {
                 showsVerticalScrollIndicator={false}
                 ListEmptyComponent={<Text className="home-empty-state">No subscriptions yet.</Text>}
                 contentContainerClassName="pb-30"
+            />
+            <CreateSubscriptionModal
+                isVisible={isModalVisible}
+                onClose={() => setIsModalVisible(false)}
+                onSubmit={handleCreateSubscription}
             />
         </SafeAreaView>
     );
