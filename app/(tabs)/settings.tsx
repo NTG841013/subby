@@ -21,7 +21,7 @@ const Settings = () => {
                                 <Image source={{ uri: user.imageUrl }} className="size-16" />
                             ) : (
                                 <Text className="text-2xl font-sans-bold text-white">
-                                    {user.firstName?.charAt(0) || user.emailAddresses[0].emailAddress.charAt(0).toUpperCase()}
+                                    {user.firstName?.charAt(0) || user.emailAddresses?.[0]?.emailAddress?.charAt(0).toUpperCase() || '?'}
                                 </Text>
                             )}
                         </View>
@@ -30,7 +30,7 @@ const Settings = () => {
                                 {user.firstName} {user.lastName}
                             </Text>
                             <Text className="text-sm font-sans-medium text-muted-foreground" numberOfLines={1}>
-                                {user.emailAddresses[0].emailAddress}
+                                {user.emailAddresses?.[0]?.emailAddress || "No email provided"}
                             </Text>
                         </View>
                     </View>

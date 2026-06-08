@@ -127,7 +127,11 @@ const SignUp = () => {
                                                 // Display the second form to collect the verification code
                                                 setPendingVerification(true);
                                             } catch (err: any) {
-                                                console.error(JSON.stringify(err, null, 2));
+                                                if (__DEV__) {
+                                                    console.error("Sign-up error:", JSON.stringify(err, null, 2));
+                                                } else {
+                                                    console.error(`Auth error: ${err?.name ?? 'Error'} - ${err?.message ?? 'no message'}`);
+                                                }
                                                 setError("Something went wrong. Please try again.");
                                             } finally {
                                                 setLoading(false);
@@ -186,7 +190,11 @@ const SignUp = () => {
                                                     setError("Verification failed. Please check the code and try again.");
                                                 }
                                             } catch (err: any) {
-                                                console.error(JSON.stringify(err, null, 2));
+                                                if (__DEV__) {
+                                                    console.error("Verification error:", JSON.stringify(err, null, 2));
+                                                } else {
+                                                    console.error(`Auth error: ${err?.name ?? 'Error'} - ${err?.message ?? 'no message'}`);
+                                                }
                                                 setError("Something went wrong. Please try again.");
                                             } finally {
                                                 setLoading(false);

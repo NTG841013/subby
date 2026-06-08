@@ -107,7 +107,11 @@ const SignIn = () => {
                                                 });
                                             }
                                         } catch (err: any) {
-                                            console.error(JSON.stringify(err, null, 2));
+                                            if (__DEV__) {
+                                                console.error("Sign-in error:", JSON.stringify(err, null, 2));
+                                            } else {
+                                                console.error("Sign-in error:", err?.message || "Unknown error");
+                                            }
                                             setError("Something went wrong. Please try again.");
                                         } finally {
                                             setLoading(false);

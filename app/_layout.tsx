@@ -18,15 +18,23 @@ const tokenCache = {
       return item;
     } catch (error) {
       console.error("SecureStore get item error: ", error);
-      await SecureStore.deleteItemAsync(key);
+      // Only delete if the error indicates corruption or other specific issues
+      // Otherwise, return null to let Clerk handle it without potentially losing valid data
+      // Common corruption error message on Android might contain "UnrecoverableKeyException" or similar
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      if (errorMessage.includes("UnrecoverableKeyException") || errorMessage.includes("Integrity") || errorMessage.includes("corrupted")) {
+        console.log("Attempting to delete corrupted key:", key);
+        await SecureStore.deleteItemAsync(key).catch(() => {});
+      }
       return null;
     }
   },
   async saveToken(key: string, value: string) {
     try {
-      return SecureStore.setItemAsync(key, value);
+      return await SecureStore.setItemAsync(key, value);
     } catch (err) {
-      return;
+      console.error("SecureStore save item error:", err);
+      throw err;
     }
   },
 };
