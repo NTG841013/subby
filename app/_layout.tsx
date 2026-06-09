@@ -5,6 +5,9 @@ import {useEffect, useState} from "react";
 import { ClerkProvider, ClerkLoaded, useAuth } from "@clerk/expo";
 import * as SecureStore from "expo-secure-store";
 import { View } from "react-native";
+import { PostHogProvider } from "posthog-react-native";
+import { posthog } from "@/src/config/posthog";
+import { SubscriptionProvider } from "@/src/context/SubscriptionContext";
 
 const tokenCache = {
   async getToken(key: string) {
@@ -115,8 +118,12 @@ export default function RootLayout() {
     }
 
     return (
-        <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
-            <InitialLayout />
-        </ClerkProvider>
+        <PostHogProvider client={posthog}>
+            <SubscriptionProvider>
+                <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
+                    <InitialLayout />
+                </ClerkProvider>
+            </SubscriptionProvider>
+        </PostHogProvider>
     )
 }
