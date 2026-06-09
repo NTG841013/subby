@@ -3,7 +3,7 @@ import {styled} from "nativewind";
 import {FlatList, Image, Text, View, Pressable} from "react-native";
 import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
 import images from "@/constants/images";
-import {HOME_BALANCE, HOME_SUBSCRIPTIONS, HOME_USER, UPCOMING_SUBSCRIPTIONS} from "@/constants/data";
+import {HOME_BALANCE, HOME_USER} from "@/constants/data";
 import {icons} from "@/constants/icons";
 import {formatCurrency} from "@/lib/utils";
 import dayjs from "dayjs";
@@ -11,7 +11,7 @@ import ListHeading from "@/components/ListHeading";
 import UpcomingSubscriptionCard from "@/components/UpcomingSubscriptionCard";
 import SubscriptionCard from "@/components/SubscriptionCard";
 import CreateSubscriptionModal from "@/components/CreateSubscriptionModal";
-import {useState} from "react";
+import {useMemo, useState} from "react";
 import { useSubscriptions } from "@/src/context/SubscriptionContext";
 
 
@@ -24,6 +24,24 @@ export default function Home() {
     const { subscriptions, addSubscription } = useSubscriptions();
     const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<string | null>(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const upcomingSubscriptions = useMemo(() => {
+        return subscriptions
+            .filter(sub => sub.status === 'active' && sub.renewalDate)
+            .map(sub => {
+                const daysLeft = dayjs(sub.renewalDate).diff(dayjs(), 'day');
+                return {
+                    id: sub.id,
+                    name: sub.name,
+                    price: sub.price,
+                    currency: sub.currency,
+                    icon: sub.icon,
+                    daysLeft: daysLeft > 0 ? daysLeft : 0
+                } as UpcomingSubscription;
+            })
+            .sort((a, b) => a.daysLeft - b.daysLeft)
+            .slice(0, 5); // Take top 5 upcoming
+    }, [subscriptions]);
 
     const handleSubscriptionPress = (item: any) => {
         setExpandedSubscriptionId((currentId) => (currentId === item.id ? null : item.id));
@@ -71,7 +89,7 @@ export default function Home() {
                             <ListHeading title="Upcoming" />
 
                             <FlatList
-                                data={UPCOMING_SUBSCRIPTIONS}
+                                data={upcomingSubscriptions}
                                 renderItem={({ item }) => (<UpcomingSubscriptionCard {...item} />)}
                                 keyExtractor={(item) => item.id}
                                 horizontal
