@@ -29,7 +29,7 @@ export default function Home() {
         setExpandedSubscriptionId((currentId) => (currentId === item.id ? null : item.id));
     };
 
-    const handleCreateSubscription = (newSub: any) => {
+    const handleCreateSubscription = (newSub: Subscription) => {
         addSubscription(newSub);
     };
 

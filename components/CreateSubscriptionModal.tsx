@@ -34,7 +34,7 @@ const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: CreateSubscript
     const trimmedPrice = price.trim();
     if (!trimmedPrice) return false;
     // Strict numeric pattern check
-    if (!/^\s*[+-]?(\d+(\.\d+)?|\.\d+)\s*$/.test(trimmedPrice)) return false;
+    if (!/^\s*(\d+(\.\d+)?|\.\d+)\s*$/.test(trimmedPrice)) return false;
     const numValue = Number(trimmedPrice);
     return Number.isFinite(numValue) && numValue > 0;
   };
