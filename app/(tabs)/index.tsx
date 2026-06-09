@@ -12,6 +12,7 @@ import UpcomingSubscriptionCard from "@/components/UpcomingSubscriptionCard";
 import SubscriptionCard from "@/components/SubscriptionCard";
 import CreateSubscriptionModal from "@/components/CreateSubscriptionModal";
 import {useState} from "react";
+import { useSubscriptions } from "@/src/context/SubscriptionContext";
 
 
 import {useUser} from "@clerk/expo";
@@ -20,8 +21,8 @@ const SafeAreaView = styled(RNSafeAreaView);
 
 export default function Home() {
     const { user } = useUser();
+    const { subscriptions, addSubscription } = useSubscriptions();
     const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<string | null>(null);
-    const [subscriptions, setSubscriptions] = useState(HOME_SUBSCRIPTIONS);
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     const handleSubscriptionPress = (item: any) => {
@@ -29,7 +30,7 @@ export default function Home() {
     };
 
     const handleCreateSubscription = (newSub: any) => {
-        setSubscriptions([newSub, ...subscriptions]);
+        addSubscription(newSub);
     };
 
     return (
@@ -98,7 +99,7 @@ export default function Home() {
                 contentContainerClassName="pb-30"
             />
             <CreateSubscriptionModal
-                isVisible={isModalVisible}
+                visible={isModalVisible}
                 onClose={() => setIsModalVisible(false)}
                 onSubmit={handleCreateSubscription}
             />

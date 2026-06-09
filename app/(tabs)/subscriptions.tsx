@@ -1,21 +1,26 @@
 import React, { useState, useMemo } from 'react';
-import { View, Text, FlatList, TextInput, Platform, Keyboard } from 'react-native';
+import { View, Text, FlatList, TextInput, Platform, Keyboard, Pressable, Image } from 'react-native';
 import { SafeAreaView as RNSafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HOME_SUBSCRIPTIONS } from '@/constants/data';
 import SubscriptionCard from '@/components/SubscriptionCard';
 import { Ionicons } from '@expo/vector-icons';
 import { styled } from 'nativewind';
 import { components } from '@/constants/theme';
+import CreateSubscriptionModal from '@/components/CreateSubscriptionModal';
+import { icons } from '@/constants/icons';
+import { useSubscriptions } from '@/src/context/SubscriptionContext';
 
 const SafeAreaView = styled(RNSafeAreaView);
 
 const Subscriptions = () => {
+    const { subscriptions, addSubscription } = useSubscriptions();
     const [searchQuery, setSearchQuery] = useState('');
     const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<string | null>(null);
+    const [isModalVisible, setIsModalVisible] = useState(false);
     const insets = useSafeAreaInsets();
 
     const filteredSubscriptions = useMemo(() => {
-        const subs = HOME_SUBSCRIPTIONS || [];
+        const subs = subscriptions || [];
         const query = searchQuery?.toLowerCase().trim();
 
         if (!query) return subs;
@@ -29,10 +34,14 @@ const Subscriptions = () => {
                    category.toLowerCase().includes(query) ||
                    plan.toLowerCase().includes(query);
         });
-    }, [searchQuery]);
+    }, [searchQuery, subscriptions]);
 
     const handleSubscriptionPress = (id: string) => {
         setExpandedSubscriptionId((currentId) => (currentId === id ? null : id));
+    };
+
+    const handleCreateSubscription = (newSub: Subscription) => {
+        addSubscription(newSub);
     };
 
     const tabBar = components.tabBar;
@@ -44,7 +53,12 @@ const Subscriptions = () => {
                 keyExtractor={(item) => item.id}
                 ListHeaderComponent={
                     <View className="px-5">
-                        <Text className="text-3xl font-sans-bold text-primary my-8">Subscriptions</Text>
+                        <View className="flex-row items-center justify-between my-8">
+                            <Text className="text-3xl font-sans-bold text-primary">Subscriptions</Text>
+                            <Pressable onPress={() => setIsModalVisible(true)}>
+                                <Image source={icons.add} className="size-10" />
+                            </Pressable>
+                        </View>
 
                         {/* Search Bar */}
                         <View className="flex-row items-center bg-card border border-border rounded-2xl px-4 py-3 mb-6">
@@ -86,6 +100,11 @@ const Subscriptions = () => {
                 onScrollBeginDrag={Keyboard.dismiss}
                 automaticallyAdjustKeyboardInsets={true}
                 keyboardDismissMode="on-drag"
+            />
+            <CreateSubscriptionModal
+                visible={isModalVisible}
+                onClose={() => setIsModalVisible(false)}
+                onSubmit={handleCreateSubscription}
             />
         </SafeAreaView>
     );
